@@ -5,6 +5,8 @@ Takes a file containing a single FASTA formatted DNA sequence of at most
 1 kbp and returns all the unique open reading frames from that sequece 
 and its reverse complement.
 Assumes the FASTA formatting is in the form of '>Rosalind_####' 
+All you need to do is run the function 'open_reading_frames' with the
+file name it will return all the unique open reading frames
 """
 
 def extract_sequence_from_file(filename):
