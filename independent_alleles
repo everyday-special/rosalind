@@ -1,0 +1,29 @@
+"""
+My Soluton for Independent Alleles from Project Rosalind's
+Bioinformatics Stronghold.
+"""
+
+def fact(number):
+	"""Returns the factorial of a number"""
+	if number == 1 or number == 0:
+		return 1
+	else:
+		return number * fact(number - 1)
+
+def binomial_formula(k, n):
+	"""
+	Given: Two positive integers k (k≤7) and n (n≤2k). In this problem, 
+	we begin with Tom, who in the 0th generation has genotype Aa Bb. Tom
+	has two children in the 1st generation, each of whom has two children, 
+	and so on. Each organism always mates with an organism having genotype 
+	Aa Bb.
+	Return: The probability that at least N Aa Bb organisms will belong 
+	to the k-th generation of Tom's family tree (don't count the Aa Bb 
+	mates at each level). Assume that Mendel's second law holds for the 
+	factors.
+	"""
+	if n >= 2 ** k:
+		return fact(2 ** k) / (fact(n) * fact((2 ** k) - n)) * (.25 ** n) * (.75 ** ((2 ** k) - n))
+	
+	else:
+		return fact(2 ** k) / (fact(n) * fact((2 ** k) - n)) * (.25 ** n) * (.75 ** ((2 ** k) - n)) + binomial_formula(k, n + 1)
